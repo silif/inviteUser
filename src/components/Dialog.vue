@@ -58,8 +58,8 @@ export default {
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0,0,0,.3);
     box-sizing: border-box;
-    width: 60%;
-    max-width: 600px;
+    width: 80%;
+    max-width: 500px;
     margin-top: 15vh;
     z-index: 11;
     padding: 0 10px 10px 10px;

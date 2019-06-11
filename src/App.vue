@@ -16,6 +16,9 @@
         <VFormItem label="email:" prop="email">
           <Input prefixIcon="icon-emailFilled" v-model="formData.email"/>
         </VFormItem>
+        <VFormItem label="email comfirm:" prop="emailConfirm">
+          <Input prefixIcon="icon-emailFilled" v-model="formData.emailConfirm"/>
+        </VFormItem>
         <div>{{postResult}}</div>
         <Button @click="submitForm" type="primary" :loading="loading" full>Send</Button>
         <div>{{massage}}</div>
@@ -51,6 +54,15 @@ export default {
     Head
   },
   data () {
+    const validateEmail = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('cant be empty'))
+      } else if (value !== this.formData.email) {
+        callback(new Error('not same!'))
+      } else {
+        callback()
+      }
+    }
     return {
       doneVisible: false,
       loading: false,
@@ -59,15 +71,19 @@ export default {
       massage: '',
       formData: {
         name: '',
-        email: ''
+        email: '',
+        emailConfirm: ''
       },
       rules: {
         name: [
-          { required: true, message: '不能为空', trigger: 'blur' }
+          { required: true, message: 'cant be empty', trigger: 'blur' }
         ],
         email: [
-          { required: true, message: '不能为空', trigger: 'blur' },
-          { type: 'email', message: '邮箱格式不正确', trigger: 'blur' }
+          { required: true, message: 'cant be empty', trigger: 'blur' },
+          { type: 'email', message: 'bot ture email format', trigger: 'blur' }
+        ],
+        emailConfirm: [
+          { validator: validateEmail, trigger: 'blur' }
         ]
       }
     }

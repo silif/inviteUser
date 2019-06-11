@@ -103,7 +103,8 @@ export default {
     align-items: center;
   }
   .label{
-    min-width: 3em;
+    min-width: 5em;
+    flex: 1 0 0;
   }
 }
 </style>
