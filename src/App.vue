@@ -4,7 +4,8 @@
     <div class="main">
       <div class="content">
         <h1>A bertter way to enjoy everyday</h1>
-        <Button @click="makeInvite">Requst an invite</Button>
+        <p>be the first kown when we launch</p>
+        <Button type="primary" plain @click="makeInvite">Requst an invite</Button>
       </div>
     </div>
     <Dialog :visible="visible" title="Request an invite" @close="closeDialog">
@@ -16,13 +17,14 @@
           <Input prefixIcon="icon-emailFilled" v-model="formData.email"/>
         </VFormItem>
         <div>{{postResult}}</div>
-        <Button @click="submitForm" :loading="loading" full>Send</Button>
+        <Button @click="submitForm" type="primary" :loading="loading" full>Send</Button>
         <div>{{massage}}</div>
       </VForm>
     </Dialog>
     <Dialog :visible="doneVisible" @close="closeDone">
       <h1>All Done</h1>
-      <Button @click="closeDone" full>OK</Button>
+      <p class="tips">you will be one of the first to experience Broccoil & Co. when we lounch</p>
+      <Button @click="closeDone" type="primary" full>OK</Button>
     </Dialog>
     <Foot></Foot>
   </div>
@@ -100,14 +102,11 @@ export default {
     },
     handleReset () {
       this.$refs.form.resetFields()
-      this.formData = {
-        name: '',
-        email: ''
-      }
       this.message = ''
     },
     closeDialog () {
       this.visible = false
+      this.handleReset()
     },
     makeInvite () {
       this.visible = true
@@ -129,6 +128,11 @@ export default {
     max-width: 400px;
     margin: auto;
     padding-top: 35vh;
+  }
+  .tips{
+    width: 21em;
+    text-align: center;
+    margin: 2em auto;
   }
 }
 </style>

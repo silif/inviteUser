@@ -14,6 +14,13 @@ describe('Button.vue', () => {
     })
     let buttons = vm.$el;
     expect(buttons.classList.contains('is-loading')).toBe.true;
-    console.log('其他测试类似')
   });
+  it('plain', () => {
+    vm = getVm(Button, {
+        plain: true
+    })
+    let buttons = vm.$el;
+    expect(buttons.classList.contains('is-plain')).toBe.true;
+  });
+  console.log('其他测试类似')
 })

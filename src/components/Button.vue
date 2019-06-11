@@ -9,7 +9,8 @@
       {
         'is-disabled': disabled,
         'is-loading': loading,
-        'is-full': full
+        'is-full': full,
+        'is-plain': plain
       }
     ]"
   >
@@ -28,7 +29,8 @@ export default {
     loading: Boolean,
     disabled: Boolean,
     size: String,
-    full: Boolean
+    full: Boolean,
+    plain: Boolean
   },
   methods: {
     handleClick (evt) {
@@ -67,6 +69,24 @@ export default {
 }
 .is-full{
   width: 100%;
+}
+.button-primary{
+  color: #fff;
+  background-color: #409eff;
+  border-color: #409eff;
+  &:hover{
+    background-color: #66a9ee;
+  }
+}
+.is-plain{
+  color: #409eff;
+  background: #ecf5ff;
+  border-color: #b3d8ff;
+  &:hover{
+    color: #fff;
+    background-color: #409eff;
+    border-color: #409eff;
+  }
 }
 @keyframes myRotate{
   0%{ transform: rotate(0deg);}

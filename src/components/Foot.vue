@@ -1,6 +1,6 @@
 <template>
   <footer>
-      <div>made with in Melbourn</div>
+      <div>made with &#9829; in Melbourn</div>
       <div>All copyright reserved</div>
   </footer>
 </template>
